@@ -1,4 +1,5 @@
 import java.util.List;
+
 public class DriveThruView {
 
     public void render(List<Car> cars, List<FoodTicket> tickets) {
@@ -25,7 +26,6 @@ public class DriveThruView {
         else {
             System.out.println("Window 1: car " + window1.getCarId() + " is ordering");
         }
-
         if (window2 == null) {
             System.out.println("Window 2: No cars waiting");
         }
@@ -41,25 +41,13 @@ public class DriveThruView {
                         break;
                     }
                 }
-            }
-        System.out.println("Cars:");
-        for (Car car : cars) {
-            System.out.println(car.getCarId() + " Ticket: " + car.getTicketId());
         }
-        System.out.println("Tickets:");
-        for (FoodTicket ticket : tickets) {
-            System.out.println(ticket.getTicketId() + " " + ticket.getItems() + " paid: "
-        + ticket.isPaid() + " prepared: " + ticket.isPrepared());
-        }
-    }   
+    }
 
     public void showError(String message) {
-        System.out.println("Error: " + message);
+            System.out.println("Error: " + message);
     }
-
     public void showMessage(String message) {
-        System.out.println(message);
+            System.out.println(message);
     }
 }
-
-
