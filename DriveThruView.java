@@ -1,7 +1,13 @@
 import java.util.List;
 
+/**
+ * The DriveThruView class renders the state of both queues and window statuses, and displays 
+ * an error message for invalid input or sequence violations and regular messages.
+ */
 public class DriveThruView {
-
+    /**
+     * Renders the state of both queues and active window statuses.
+     */
     public void render(List<Car> cars, List<FoodTicket> tickets) {
         if (cars == null) {
             throw new IllegalArgumentException("cars is null");
@@ -36,17 +42,23 @@ public class DriveThruView {
             }
             else {
                 for (FoodTicket ticket : tickets) {
-                    if (ticket.getTicketId() == window2.getTicketId())
+                    if (ticket.getTicketId() == window2.getTicketId()) {
                         System.out.println("paid: " + ticket.isPaid() + " prepared: " + ticket.isPrepared());
                         break;
                     }
                 }
+            }
         }
     }
-
+    /**
+     * Shows the error message.
+     */
     public void showError(String message) {
             System.out.println("Error: " + message);
     }
+    /**
+     * Shows the regular message.
+     */
     public void showMessage(String message) {
             System.out.println(message);
     }
