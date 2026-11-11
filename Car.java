@@ -20,7 +20,7 @@ public class Car{
  * Returns the unique identifier of the car.
  * @return
  */
-    public String getCarID(){
+    public String getCarId(){
             return carID;
         }
 /**
@@ -28,21 +28,21 @@ public class Car{
  * @param carID the unique identifier to set for the car
  * @return
  */
-    public void setCarID(String carID){
+    public void setCarId(String carID){
             this.carID = carID;
         }
 /**
  * Returns the ticket ID associated with the car.
  * @return the ticket ID of the order attached to the car
  */
-    public int getTicketID(){
+    public int getTicketId(){
             return ticketID;
         }
 /**
  * Sets the ticket ID associated with the car.
  * @param ticketID the ticket ID to set for the car 
  */
-    public void setTicketID(int ticketID){
+    public void setTicketId(int ticketID){
             this.ticketID = ticketID;
         }
 /**(non-Javadoc)

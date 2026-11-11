@@ -27,14 +27,14 @@ public class FoodTicket {
      *
      * @return the ticket ID of the food ticket
      */
-    public int getTicketID() {
+    public int getTicketId() {
         return ticketID;
     }/**
      * Sets the unique identifier of the food ticket.
      *
      * @param ticketID the new ticket ID for the food ticket
      */
-    public void setTicketID(int ticketID) {
+    public void setTicketId(int ticketID) {
         this.ticketID = ticketID;
     }
 /**

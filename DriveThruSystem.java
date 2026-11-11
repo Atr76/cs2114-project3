@@ -19,16 +19,16 @@ public class DriveThruSystem {
 
     public void addCar(Car car) {
         if (carQueue.contains(car)) {
-            throw new IllegalArgumentException("Car with ID " + car.getCarID() + " already exists");
+            throw new IllegalArgumentException("Car with ID " + car.getCarId() + " already exists");
         }
         carQueue.enqueue(car);
     }
 
     public FoodTicket createOrder(String carId, List<String> items) {
         FoodTicket foodTicket = new FoodTicket(nextTicketId, items);
-        foodTicket.setTicketID(nextTicketId);
+        foodTicket.setTicketId(nextTicketId);
         Car car = findCar(carId);
-        car.setTicketID(nextTicketId);
+        car.setTicketId(nextTicketId);
         foodTicketQueue.enqueue(foodTicket);
         nextTicketId++;
         return foodTicket;
@@ -58,7 +58,7 @@ public class DriveThruSystem {
 
     public Car deliverOrder(){
         if(foodTicketQueue.peek().isPaid() && foodTicketQueue.peek().isPrepared()){
-            FoodTicket FoodTicket = foodTicketQueue.dequeue();
+            FoodTicket foodTicket = foodTicketQueue.dequeue();
             Car car = carQueue.dequeue();
             return car ;
         }
@@ -75,7 +75,7 @@ public class DriveThruSystem {
 
     private Car findCar(String carId){
         for (Car car : carQueue.toList()) {
-            if (car.getCarID().equals(carId)) {
+            if (car.getCarId().equals(carId)) {
                 return car;
             }
         }
@@ -84,7 +84,7 @@ public class DriveThruSystem {
 
     private FoodTicket findFoodTicket(int ticketId){
         for (FoodTicket foodTicket : foodTicketQueue.toList()) {
-            if (foodTicket.getTicketID() == ticketId) {
+            if (foodTicket.getTicketId() == ticketId) {
                 return foodTicket;
             }
         }
