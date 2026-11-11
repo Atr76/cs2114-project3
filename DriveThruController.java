@@ -1,5 +1,3 @@
-package drivethru;
-
 import java.util.List;
 import java.util.NoSuchElementException;
 
