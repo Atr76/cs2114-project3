@@ -80,6 +80,14 @@ public class DriveThruQueue<T> {
     }
 
     /**
+     * Returns the number of elements in the queue.
+     * @return the size of the queue
+     */
+    public int getSize() {
+        return this.size;
+    }
+
+    /**
      * Converts the queue to a list of elements.
      * @return a list containing all elements in the queue, in order from front to rear.
      */     
