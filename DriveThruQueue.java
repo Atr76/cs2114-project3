@@ -86,7 +86,21 @@ public class DriveThruQueue<T> {
     public int getSize() {
         return this.size;
     }
-
+/**
+ * Checks if the queue contains the specified element.  
+ * @param data the element to check for in the queue.
+ * @return true if the queue contains the element, false otherwise.
+ */
+    public boolean contains(T data) {
+        Node<T> current = this.front;
+        while (current != null) {
+            if (current.data.equals(data)) {
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
     /**
      * Converts the queue to a list of elements.
      * @return a list containing all elements in the queue, in order from front to rear.

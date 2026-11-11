@@ -1,5 +1,6 @@
 import java.util.HashSet;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 /**
@@ -17,12 +18,17 @@ public class DriveThruSystem {
     }
 
     public void addCar(Car car) {
-        carQueue.enqueue(car); 
-     }
+        if (carQueue.contains(car)) {
+            throw new IllegalArgumentException("Car with ID " + car.getCarID() + " already exists");
+        }
+        carQueue.enqueue(car);
+    }
 
     public FoodTicket createOrder(String carId, List<String> items) {
         FoodTicket foodTicket = new FoodTicket(nextTicketId, items);
         foodTicket.setTicketID(nextTicketId);
+        Car car = findCar(carId);
+        car.setTicketID(nextTicketId);
         foodTicketQueue.enqueue(foodTicket);
         nextTicketId++;
         return foodTicket;
@@ -37,11 +43,51 @@ public class DriveThruSystem {
     }
 
     public void markPaid(int ticketId){
-        for (FoodTicket foodTicket : foodTicketQueue.toList()) {
-            if (foodTicket.getTicketID() == ticketId) {
-                foodTicket.markAsPaid();;
-                break;
+        FoodTicket foodTicket = findFoodTicket(ticketId);
+        if (foodTicket != null) {
+            foodTicket.markAsPaid();
+        }
+    }
+
+    public void markPrepared(int ticketId){
+        FoodTicket foodTicket = findFoodTicket(ticketId);
+        if (foodTicket != null) {
+            foodTicket.markAsPrepared();
+        }
+    }
+
+    public Car deliverOrder(){
+        if(foodTicketQueue.peek().isPaid() && foodTicketQueue.peek().isPrepared()){
+            FoodTicket FoodTicket = foodTicketQueue.dequeue();
+            Car car = carQueue.dequeue();
+            return car ;
+        }
+        return null;
+    }
+    
+    public List<Car> getCarSnapshot(){
+        return carQueue.toList();
+    }
+
+    public List<FoodTicket> getFoodTicketSnapshot(){
+        return foodTicketQueue.toList();
+    }
+
+    private Car findCar(String carId){
+        for (Car car : carQueue.toList()) {
+            if (car.getCarID().equals(carId)) {
+                return car;
             }
         }
+        throw new NoSuchElementException("Car with ID " + carId + " not found");
+    }
+
+    private FoodTicket findFoodTicket(int ticketId){
+        for (FoodTicket foodTicket : foodTicketQueue.toList()) {
+            if (foodTicket.getTicketID() == ticketId) {
+                return foodTicket;
+            }
+        }
+        throw new NoSuchElementException("FoodTicket with ID " + ticketId + " not found");
     }
 }
