@@ -5,44 +5,43 @@
  */
 public class Car{
     String carID;
-    int ticketID;
+    Integer ticketID;
 /**
      * Constructs a Car object with the specified car ID.
-     * The ticket ID is initialized to 0.
+     * The ticket ID is initialized to null.
      *
      * @param carID the unique identifier for the car
      */
     public Car(String carID){
+        if(carID == null || carID.isEmpty()) {
+            throw new IllegalArgumentException("Car ID cannot be null or empty");
+        }
         this.carID = carID;
-        this.ticketID = 0;
+        this.ticketID = null;
     }
 /**
  * Returns the unique identifier of the car.
- * @return
+ * @return the unique identifier of the car
  */
     public String getCarId(){
             return carID;
         }
-/**
- * Sets the unique identifier of the car.
- * @param carID the unique identifier to set for the car
- * @return
- */
-    public void setCarId(String carID){
-            this.carID = carID;
-        }
+
 /**
  * Returns the ticket ID associated with the car.
  * @return the ticket ID of the order attached to the car
  */
-    public int getTicketId(){
+    public Integer getTicketId(){
             return ticketID;
         }
 /**
  * Sets the ticket ID associated with the car.
  * @param ticketID the ticket ID to set for the car 
  */
-    public void setTicketId(int ticketID){
+    public void setTicketId(Integer ticketID){
+            if(ticketID != null){
+                throw new IllegalArgumentException("Car already has Ticket Id");
+            } 
             this.ticketID = ticketID;
         }
 /**(non-Javadoc)

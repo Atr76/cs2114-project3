@@ -17,6 +17,9 @@ public class FoodTicket {
      * @param items the list of items associated with the food ticket
      */
     public FoodTicket(int ticketID, List<String> items) {
+        if(items == null || items.isEmpty()) {
+            throw new IllegalArgumentException("Items cannot be null or empty");
+        }
         this.ticketID = ticketID;
         this.items = items;
         this.paymentStatus = false;
@@ -65,12 +68,21 @@ public class FoodTicket {
      * Marks the food ticket as paid by setting the payment status to true.
      */
     public void markAsPaid() {
+        if(paymentStatus) {
+            throw new IllegalStateException("Food ticket is already paid");
+        }
         this.paymentStatus = true;
     }
 /**
      * Marks the food ticket as prepared by setting the preparation status to true.
      */
     public void markAsPrepared() {
+        if(!paymentStatus) {
+            throw new IllegalStateException("Food ticket cannot be prepared before payment");
+        }
+        if(preparationStatus) {
+            throw new IllegalStateException("Food ticket is already prepared");
+        }
         this.preparationStatus = true;
     }
 }

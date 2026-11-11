@@ -10,7 +10,10 @@ public class DriveThruSystem {
     private DriveThruQueue<Car> carQueue;
     private DriveThruQueue<FoodTicket> foodTicketQueue;
     private int nextTicketId;
-
+    /**
+     * Constructs a DriveThruSystem object with an empty car queue, an empty food ticket queue,
+     * and initializes the next ticket ID to 1.
+     */
     public DriveThruSystem() {
         carQueue = new DriveThruQueue<>();
         foodTicketQueue = new DriveThruQueue<>();
@@ -18,6 +21,9 @@ public class DriveThruSystem {
     }
 
     public void addCar(Car car) {
+        if(car == null) {
+            throw new IllegalArgumentException("Car cannot be null");
+        }
         if (carQueue.contains(car)) {
             throw new IllegalArgumentException("Car with ID " + car.getCarId() + " already exists");
         }

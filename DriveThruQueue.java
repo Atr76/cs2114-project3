@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 /**
  * A generic implementation of a first-in-first-out (FIFO) queue using a linked list.
  */
@@ -32,6 +33,9 @@ public class DriveThruQueue<T> {
      * @param data the element to be added.
      */
     public void enqueue(T data) {
+        if(data == null) {
+            throw new IllegalArgumentException("Cannot enqueue null data");
+        }
         Node<T> newNode = new Node<>(data);
         if (isEmpty()) {
             this.front = newNode;
@@ -45,11 +49,12 @@ public class DriveThruQueue<T> {
 
     /**
      * Removes and returns the element at the front of the queue.
-     * @return the element at the front of the queue, or null if the queue is empty.
+     * @return the element at the front of the queue.
+     * @throws NoSuchElementException if the queue is empty.
      */
     public T dequeue() {
         if (isEmpty()) {
-            return null;
+            throw new NoSuchElementException("Cannot dequeue from an empty queue");
         }
         T data = this.front.data;
         this.front = this.front.next;
@@ -70,11 +75,12 @@ public class DriveThruQueue<T> {
 
     /**
      * Returns the element at the front of the queue without removing it.
-     * @return the element at the front of the queue, or null if the queue is empty.
+     * @return the element at the front of the queue.
+     * @throws NoSuchElementException if the queue is empty.
      */
     public T peek() {
         if (isEmpty()) {
-            return null;
+            throw new NoSuchElementException("Cannot peek from an empty queue");
         }
         return this.front.data;
     }

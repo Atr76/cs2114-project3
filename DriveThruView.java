@@ -17,7 +17,7 @@ public class DriveThruView {
         }
         Car window1 = null;
         for (Car car : cars) {
-            if (car.getTicketId() == 0) {
+            if (car.getTicketId() == null) {
                 window1 = car;
                 break;
             }
@@ -37,7 +37,7 @@ public class DriveThruView {
         }
         else {
             System.out.println("Window 2: car " + window2.getCarId());
-            if (window2.getTicketId() == 0) {
+            if (window2.getTicketId() == null) {
                 System.out.println("No ticket");
             }
             else {
