@@ -96,4 +96,21 @@ public class DriveThruSystem {
         }
         throw new NoSuchElementException("FoodTicket with ID " + ticketId + " not found");
     }
+
+    public void options(){
+        System.out.println("Available options:");
+        System.out.println("add");
+        System.out.println("order");
+        System.out.println("pay");
+        System.out.println("prep");
+        System.out.println("deliver");
+    }
+    public static void main(String[] args) {
+        DriveThruSystem system = new DriveThruSystem();
+        DriveThruView view = new DriveThruView();
+        DriveThruController controller = new DriveThruController(system, view);
+        system.options();
+        InputHandler inputHandler = new InputHandler(controller);
+        inputHandler.readInput();
+    }
 }
