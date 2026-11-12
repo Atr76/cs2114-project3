@@ -39,7 +39,7 @@ public class Car{
  * @param ticketID the ticket ID to set for the car 
  */
     public void setTicketId(Integer ticketID){
-            if(ticketID != null){
+            if(this.ticketID != null){
                 throw new IllegalArgumentException("Car already has Ticket Id");
             } 
             this.ticketID = ticketID;
