@@ -3,10 +3,10 @@
 
 ### What Changed from Our Specification
 * **Classes & Method Signatures:**
-  * **`Car`:** Changed `setTicketId(int ticketId)` to `setTicketId(Integer ticketId)` to align with `ticketID` being stored as an `Integer` wrapper object. Also threw `IllegalArgumentException` instead of `IllegalStateException` when a car already has a ticket ID
-  * **`DriveThruQueue<T>`:** Renamed `size()` to `getSize()` and added a `contains(T data)` helper method. Additionally, `toList()` returns a standard `ArrayList` rather than an unmodifiable copy.
-  * **`FoodTicket`:** Renamed `markPaid()` and `markPrepared()` to `markAsPaid()` and `markAsPrepared()` (as called in `DriveThruSystem`), and included a `setTicketId(int)` setter.
-  * **`DriveThruSystem`:** Renamed `findTicket(int)` to `findFoodTicket(int)`. In `getMenu()`, we returned a `HashSet` containing `"Burger"`, `"Fries"`, and `"Soda"` rather than an unmodifiable set.
+  * **`Car`:** Changed `setTicketId(int ticketId)` to `setTicketId(Integer ticketId)` to align with `ticketID` being stored as an `Integer` wrapper object. Also threw `IllegalArgumentException` instead of `IllegalStateException` when a car already has a ticket ID (mistake from spec that we didn't catch).
+  * **`DriveThruQueue<T>`:** Renamed `size()` to `getSize()` because the rest of the model uses get accessors (for consistency) and added a `contains(T data)` helper method. Additionally, `toList()` returns a standard `ArrayList` rather than an unmodifiable copy because `refresh()` only needs a snapshot to pass to the view.
+  * **`FoodTicket`:** Renamed `markPaid()` and `markPrepared()` to `markAsPaid()` and `markAsPrepared()` (as called in `DriveThruSystem`), and included a `setTicketId(int)` setter because `DriveThruSystem.createOrder` assigns the ID after construction.
+  * **`DriveThruSystem`:** Renamed `findTicket(int)` to `findFoodTicket(int)` to match the class name. In `getMenu()`, we returned a `HashSet` containing `"Burger"`, `"Fries"`, and `"Soda"` rather than an unmodifiable set.
   * **`InputHandler`:** Added an overloaded constructor `InputHandler(DriveThruController controller, InputStream in)` alongside `InputHandler(DriveThruController controller)` so CLI commands can be injected via `ByteArrayInputStream` during unit tests without blocking on `System.in`.
 * **Where Validation Lives:**
   * While the spec called for `DriveThruSystem.createOrder(...)` to validate menu items, the 7-item order cap, and whether a car is next in line, the current `DriveThruSystem.createOrder` implementation only checks if `carId` exists.
