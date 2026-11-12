@@ -76,3 +76,9 @@
 * **Aaron (`Model` — `Car`, `DriveThruQueue`, `DriveThruSystem`):** Fix the `Car.setTicketId` / `deliverOrder` / `createOrder` MVP bugs, implement `DriveThruQueue.remove` and `DriveThruSystem.cancelOrder`, and add model unit tests.
 * **Cassidy (`View` — `DriveThruView`):** Enhance `DriveThruView.render` to print the full queue waiting lists below the active Window 1 / Window 2 statuses and verify error formatting.
 * **Golden (`Controller` — `DriveThruController` & Test Suite):** Wire `cancelOrder` through `DriveThruController`, align exception handling with the model fixes, and update the JUnit test suite[cite: 14, 15].
+
+## Attribution
+
+| Class| Name | Contribution Details |
+|---|---|
+| DriveThruView | Cassidy | Drafted the functions on my own. Then I used GenAI to find any inconsistencies with the draft. Additionally, I had GenAI show me how I should start to implement window 1 status, and then I used what I had learned from impletmenting window 1 status to implement window 2 status on my own. Then I had GenAI check over my code. |
