@@ -74,7 +74,7 @@
 ### Division of Responsibilities
 * **Julia (`InputHandler` & Integration):** Add `cancel <carId>` command parsing to `InputHandler`, update CLI delimiter handling if needed, and co-lead end-to-end integration testing.
 * **Aaron (`Model` — `Car`, `DriveThruQueue`, `DriveThruSystem`):** Fix the `Car.setTicketId` / `deliverOrder` / `createOrder` MVP bugs, implement `DriveThruQueue.remove` and `DriveThruSystem.cancelOrder`, and add model unit tests.
-* **Cassidy (`View` — `DriveThruView`):** Enhance `DriveThruView.render` to print the full queue waiting lists below the active Window 1 / Window 2 statuses and verify error formatting.
+* **Cassidy (`View` — `DriveThruView`):** Enhance `DriveThruView.render` to print the full queue waiting lists below the active Window 1 / Window 2 statuses and verify error formatting and add testing. 
 * **Golden (`Controller` — `DriveThruController` & Test Suite):** Wire `cancelOrder` through `DriveThruController`, align exception handling with the model fixes, and update the JUnit test suite[cite: 14, 15].
 
 ## Attribution
@@ -86,3 +86,4 @@
 | DriveThruQueue<T> | Aaron | I used GenAI to see the basic outline of a First-In-First-Out queue then wrote the methods myself based on the outline only using what is needed for the progarm. |
 | FoodTicket + Car | Aaron | Wrote the object classes based on the the outline the group made. Used vscode copiolt to help with the methods. ALos to make sure all the method names are the same accros the classes. |
 | DriveThruController | Golden | Implemented the DriveThruController class based on the team's outline. Used AI to help implement the controller methods and ensure that the method calls and names were consistent across the different classes. |
+| ImputHandler | Julia | |
