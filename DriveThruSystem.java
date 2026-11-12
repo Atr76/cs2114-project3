@@ -75,7 +75,7 @@ public class DriveThruSystem {
         return carQueue.toList();
     }
 
-    public List<FoodTicket> getFoodTicketSnapshot(){
+    public List<FoodTicket> getTicketSnapshot(){
         return foodTicketQueue.toList();
     }
 
