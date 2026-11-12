@@ -82,3 +82,6 @@
 | Class | Name | Contribution Details |
 |---|---|---|
 | DriveThruView | Cassidy | Drafted the functions on my own. Then I used GenAI to find any inconsistencies with the draft. Additionally, I had GenAI show me how I should start to implement window 1 status, and then I used what I had learned from impletmenting window 1 status to implement window 2 status on my own. Then I had GenAI check over my code. |
+| DriveThruSystem | Aaron | Drafted functions along side vscode copilot to help catch errors. Also wrote methods then asked GenAi what the method does to see if the method does exactly what I wanted it to do. |
+| DriveThruQueue<T> | Aaron | I used GenAI to see the basic outline of a First-In-First-Out queue then wrote the methods myself based on the outline only using what is needed for the progarm. |
+| FoodTicket + Car | Aaron | Wrote the object classes based on the the outline the group made. Used vscode copiolt to help with the methods. ALos to make sure all the method names are the same accros the classes. |
